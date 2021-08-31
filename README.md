@@ -22,6 +22,7 @@ taxonID | Wikidata QID for the taxon
 namePublishedInID | Wikidata QID for the publication
 referenceType | Term to describe the role the reference plays, drawn from  (Reference Type GBIF Vocabulary)[http://rs.gbif.org/vocabulary/gbif/reference_type.xml], for example “original”, “combination”. If the role is not known this field is empty. 
 modified | Unix timestamp for last time this record was modified (can use this as a filter to only add most recent records).
+ignore | Flag to ignore this record when generating quick statements (1 = ignore).
 
 The data file `wikidata.tsv` lacks a header row so that we can sort it if needed.
 
@@ -40,7 +41,70 @@ combination | gbif:combination | recombination [Q14594740](https://www.wikidata.
 
 The script `qs.php` reads the `wikidata.tsv` file and generates the quick statements needed to add the publications to the taxa in Wikidata.
 
+## Finding existing references
 
+We want to avoid cases where Wikidata already has the (taxonID, namePublishedInID) pair, otherwise we can end up with duplicate references. Wikidata uses a hash of the data to test whether a reference is that same, so if a (taxonID, namePublishedInID) pair already exists, adding it again can result in duplicates if the existing (taxonID, namePublishedInID) statement includes additional information, such as pages. 
+
+### IPNI
+
+This command finds existing Wikidata taxon-publication pairs and we can use this to flag records in IPNI that we should not add.
+
+```
+SELECT ?ipni ?wikidata_taxon ?wikidata
+WHERE 
+{
+  ?wikidata_taxon wdt:P961 ?ipni .
+  ?wikidata_taxon wdt:P225 ?name .
+ 
+  ?wikidata_taxon p:P225 ?statement .
+  ?statement prov:wasDerivedFrom ?provenance .
+  ?provenance pr:P248 ?wikidata .
+  ?wikidata wdt:P1476 ?title .
+}
+```
+
+## Notes on specific databases
+
+### IPNI
+
+#### Original names (no basionym authors)
+
+```
+SELECT 
+Full_name_without_family_and_authors, 
+CONCAT("ipni:", Id), 
+wikidata_taxon,
+wikidata,
+"original",
+UNIX_TIMESTAMP(updated),
+IFNULL(`wikidata_done`,'')
+FROM names 
+WHERE wikidata_taxon IS NOT NULL AND wikidata IS NOT NULL
+-- originl names
+AND ((Basionym_author IS NULL) OR (Basionym_author =""))
+-- AND `Publication_year_full` LIKE "20%";
+AND Publishing_author LIKE "%B.L.Burtt%";
+```
+#### New combinations
+
+```
+SELECT 
+Full_name_without_family_and_authors, 
+CONCAT("ipni:", Id), 
+wikidata_taxon,
+wikidata,
+"combination",
+UNIX_TIMESTAMP(updated),
+IFNULL(`wikidata_done`,'')
+FROM names 
+WHERE wikidata_taxon IS NOT NULL AND wikidata IS NOT NULL
+-- originl names
+-- AND (Basionym_author IS NOT NULL) AND (Basionym_author <> "")
+AND (Authors LIKE "%(%") 
+-- AND `Publication_year_full` LIKE "20%";
+-- AND wikidata_taxon='Q42688104';
+AND Genus='Deinostigma';
+```
 
 
 

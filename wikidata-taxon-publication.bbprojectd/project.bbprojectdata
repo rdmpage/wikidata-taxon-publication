@@ -9,6 +9,7 @@
 		<string>7F629CEA-C90B-447E-BF59-71B8AADA9141</string>
 		<string>47A607C9-9221-41A9-8AA1-DC1C1C485FC6</string>
 		<string>B5B8D1A9-4EFD-42BD-808F-AA50879FF584</string>
+		<string>D7008626-B760-42E1-93E6-1127B7C4994D</string>
 	</array>
 	<key>ProjectItems</key>
 	<dict>
@@ -203,6 +204,54 @@
 			</dict>
 			<key>ItemName</key>
 			<string>qs.php</string>
+			<key>ItemType</key>
+			<string>FileReference</string>
+			<key>UserOverrideItemName</key>
+			<true/>
+		</dict>
+		<key>D7008626-B760-42E1-93E6-1127B7C4994D</key>
+		<dict>
+			<key>ItemData</key>
+			<dict>
+				<key>BookmarkData</key>
+				<data>
+				Ym9va/QCAAAAAAQQMAAAAHtN+4Qm93256En6zaQVbR5X
+				Vy9mJhI0p6jO5SNiafLa8AEAAAQAAAADAwAAAAgAKAUA
+				AAABAQAAVXNlcnMAAAAFAAAAAQEAAHJwYWdlAAAACwAA
+				AAEBAABEZXZlbG9wbWVudAAaAAAAAQEAAHdpa2lkYXRh
+				LXRheG9uLXB1YmxpY2F0aW9uAAAGAAAAAQEAAHFzLnR4
+				dAAAFAAAAAEGAAAQAAAAIAAAADAAAABEAAAAaAAAAAgA
+				AAAEAwAAEGcCAAAAAAAIAAAABAMAAIV0DQAAAAAACAAA
+				AAQDAAAjWA4AAAAAAAgAAAAEAwAAs4znBwMAAAAIAAAA
+				BAMAAAjV5wcDAAAAFAAAAAEGAACUAAAApAAAALQAAADE
+				AAAA1AAAAAgAAAAABAAAQcNvRolmZsYYAAAAAQIAAAEA
+				AAAAAAAADwAAAAAAAAAAAAAAAAAAAAgAAAAEAwAAAwAA
+				AAAAAAAEAAAAAwMAAPUBAAAIAAAAAQkAAGZpbGU6Ly8v
+				DAAAAAEBAABNYWNpbnRvc2ggSEQIAAAABAMAAADgBANp
+				AAAACAAAAAAEAABBvt1dYgAAACQAAAABAQAAMjVFNDI4
+				NkQtNzEyQy0zODk5LUI0M0YtNUQzRjZBOEJEMTIxGAAA
+				AAECAACBAAAAAQAAAO8TAAABAAAAAAAAAAAAAAABAAAA
+				AQEAAC8AAAAAAAAAAQUAAMwAAAD+////AQAAAAAAAAAQ
+				AAAABBAAAHgAAAAAAAAABRAAAOQAAAAAAAAAEBAAABAB
+				AAAAAAAAQBAAAAABAAAAAAAAAiAAANwBAAAAAAAABSAA
+				AEwBAAAAAAAAECAAAFwBAAAAAAAAESAAAJABAAAAAAAA
+				EiAAAHABAAAAAAAAEyAAAIABAAAAAAAAICAAALwBAAAA
+				AAAAMCAAAOgBAAAAAAAAAcAAADABAAAAAAAAEcAAACAA
+				AAAAAAAAEsAAAEABAAAAAAAAENAAAAQAAAAAAAAA
+				</data>
+				<key>FileURL</key>
+				<string>file:///Users/rpage/Development/wikidata-taxon-publication/qs.txt</string>
+				<key>HasSecurityScope</key>
+				<true/>
+				<key>RelativePath</key>
+				<string>./qs.txt</string>
+				<key>TypeID</key>
+				<string>_CFileLocator</string>
+				<key>Version</key>
+				<integer>1</integer>
+			</dict>
+			<key>ItemName</key>
+			<string>qs.txt</string>
 			<key>ItemType</key>
 			<string>FileReference</string>
 			<key>UserOverrideItemName</key>

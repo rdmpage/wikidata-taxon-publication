@@ -54,6 +54,11 @@ while (!feof($file_handle))
 			$skip = true;
 		}
 		
+		if (isset($obj->ignore))
+		{
+			$skip = true;
+		}
+				
 		// sanity check
 		if (!$skip && isset($obj->taxonID) && isset($obj->scientificName) && isset($obj->namePublishedInID))
 		{
