@@ -23,7 +23,8 @@ namePublishedInID | Wikidata QID for the publication
 referenceType | Term to describe the role the reference plays, drawn from  (Reference Type GBIF Vocabulary)[http://rs.gbif.org/vocabulary/gbif/reference_type.xml], for example “original”, “combination”. If the role is not known this field is empty. 
 modified | Unix timestamp for last time this record was modified (can use this as a filter to only add most recent records).
 
-The data file is stored sorted by `scientificName` which makes it easy to browse and also should make it easier to display diffs between versions.
+The data file `wikidata.tsv` lacks a header row so that we can sort it if needed.
+
 
 ### Roles for references
 
